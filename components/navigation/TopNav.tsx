@@ -111,6 +111,9 @@ export default function TopNav (){
         >
           Contact
         </Link>
+        <button className="h-8 w-8 self-center" onClick={() => setIsOpen(false)}>
+          <Icon icon="material-symbols:close-rounded" className="w-full h-full" />
+        </button>
       </nav>
     }
     </>
