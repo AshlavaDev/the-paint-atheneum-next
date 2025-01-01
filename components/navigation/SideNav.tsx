@@ -1,5 +1,8 @@
 import Link from "next/link"
 
+	//FIXME: Paint dropdown section styles + add down arrow icon
+	//TODO: Open and close icon for whole menu
+
 export default function SideNav () {
   return (
     <div className="max-w-1/5 h-screen sticky top-0 border-r-4 border-darkblue hidden md:block">

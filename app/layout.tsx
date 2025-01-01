@@ -52,7 +52,7 @@ export default function RootLayout({
               : <HeadingProvider>
                   <OtherHeading />
                   <div className="flex">
-
+                    <SideNav />
                     {children}
                   </div>
                 </HeadingProvider>
