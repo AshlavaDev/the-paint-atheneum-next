@@ -1,6 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
+
 import "./globals.css"
 import TopNav from "@/components/navigation/TopNav"
 import HomeHeading from "@/components/pageHeadings/HomeHeading"
@@ -37,13 +38,22 @@ export default function RootLayout({
         <div className="bg-offwhite flex flex-col min-h-screen">
           <TopNav />
           <main className="relative flex-grow">
-            <HeadingProvider>
-            {isHomePage ? <HomeHeading /> : <OtherHeading />}
-              <div className="flex">
+              {isHomePage ? 
+                <>
+                <HomeHeading />
+                <div className="flex">
 
-                {children}
-              </div>
-            </HeadingProvider>
+                  {children}
+                </div>
+                </>
+              : <HeadingProvider>
+                  <OtherHeading />
+                  <div className="flex">
+
+                    {children}
+                  </div>
+                </HeadingProvider>
+              }
           </main>
         </div>
       </body>

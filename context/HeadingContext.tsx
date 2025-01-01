@@ -1,4 +1,4 @@
-// Context to allow 
+// Context to allow heading title and subtitle to be set on each page
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 interface HeadingData {

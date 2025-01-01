@@ -2,18 +2,14 @@ import Link from "next/link"
 import { useState } from "react"
 import { Icon } from "@iconify/react"
 
-import { useNavBarHeight } from "@/hooks/navbarHeight";
-
 export default function TopNav (){
-  //grab the navbar to get height (set in hook)
-  const { navRef } = useNavBarHeight();
 
   //Mobile menu boolean
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-    <header ref={navRef} className="flex items-center justify-around py-4 md:py-8 px-4 text-darkblue border-b-4 border-darkblue font-serif fixed top-0 w-full z-20 bg-offwhite lg:static">
+    <header  className="flex items-center justify-around py-4 md:py-8 px-4 text-darkblue border-b-4 border-darkblue font-serif fixed top-0 w-full z-20 bg-offwhite lg:static">
       <Link href="/" className="hidden xl:block font-display text-4xl">The Paint Atheneum</Link>
       <Link href="/" className="xl:hidden text-2xl flex items-center gap-2">
         <span className="flex">

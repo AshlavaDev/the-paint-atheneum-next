@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 export default function HomeHeading (){
   return (
     <section className="bg-waterhero bg-no-repeat bg-center bg-cover text-darkblue opacity-90">
