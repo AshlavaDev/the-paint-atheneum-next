@@ -7,6 +7,7 @@ import TopNav from "@/components/navigation/TopNav"
 import HomeHeading from "@/components/pageHeadings/HomeHeading"
 import OtherHeading from "@/components/pageHeadings/OtherHeading"
 import Footer from "@/components/navigation/Footer"
+import SideNav from "@/components/navigation/SideNav"
 import { HeadingProvider } from "@/context/HeadingContext"
 
 //TODO: fix metadata issue
@@ -44,7 +45,7 @@ export default function RootLayout({
                 <>
                 <HomeHeading />
                 <div className="flex">
-
+                  <SideNav />
                   {children}
                 </div>
                 </>
