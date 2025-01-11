@@ -2,13 +2,14 @@
 
 import { usePathname } from "next/navigation"
 
+import StoreProvider from "@/components/stores/StoreProvider"
+
 import "./globals.css"
 import TopNav from "@/components/navigation/TopNav"
 import HomeHeading from "@/components/pageHeadings/HomeHeading"
 import OtherHeading from "@/components/pageHeadings/OtherHeading"
 import Footer from "@/components/navigation/Footer"
 import SideNav from "@/components/navigation/SideNav"
-import { HeadingProvider } from "@/context/HeadingContext"
 
 //TODO: fix metadata issue
 const metadata = {
@@ -29,38 +30,32 @@ export default function RootLayout({
   const description = metadata.description ?? ""
 
   //TODO: fix issue where navigating back to home page results in home heading component being the focus
-  return (
-    <html lang="en">
-      <head>
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-      </head>
-      <body
-        className={`antialiased`}
-      >
-        <div className="bg-offwhite flex flex-col min-h-screen">
-          <TopNav />
-          <main className="relative flex-grow">
+  return (    
+    <StoreProvider>
+      <html lang="en">
+        <head>
+          <meta name="title" content={title} />
+          <meta name="description" content={description} />
+        </head>
+        <body
+          className={`antialiased`}
+        >
+          <div className="bg-offwhite flex flex-col min-h-screen">
+            <TopNav />
+            <main className="relative flex-grow">
               {isHomePage ? 
-                <>
-                <HomeHeading />
-                <div className="flex">
-                  <SideNav />
-                  {children}
-                </div>
-                </>
-              : <HeadingProvider>
-                  <OtherHeading />
-                  <div className="flex">
-                    <SideNav />
-                    {children}
-                  </div>
-                </HeadingProvider>
+                <HomeHeading /> :
+                <OtherHeading />
               }
-          </main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+              <div className="flex">
+                <SideNav />
+                {children}
+              </div>
+            </main>
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </StoreProvider>
   )
 }

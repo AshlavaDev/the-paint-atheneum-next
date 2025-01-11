@@ -1,18 +1,23 @@
 'use client'
 
-import { useEffect } from 'react';
-import { useHeadingData } from '@/context/HeadingContext';
+import { useEffect } from 'react'
+
+import { setHeadingData } from "@/lib/headings/headingSlice"
+import { useAppDispatch } from '@/lib/hooks'
 
 export default function About (){
-  const { setHeadingData } = useHeadingData();
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     // Set dynamic heading data for this page
-    setHeadingData({
-      heading: "About The Paint Atheneum",
-      subHeading: "The Mission of The Paint Atheneum"
-    });
-  }, [setHeadingData])
+    dispatch(
+      setHeadingData({
+        heading: 'About',
+        subHeading: 'The Mission of The Paint Atheneum'
+      })
+    )
+  }, )
+
   return (
     <section className="flex-grow flex flex-col items-center gap-4 py-6 px-8">
       <div className="max-w-prose flex flex-col gap-3">
